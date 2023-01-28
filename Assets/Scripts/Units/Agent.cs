@@ -82,7 +82,7 @@ public class Agent : Unit
 
         foreach (Collider collider in colliderArray)
         {
-            if (collider.gameObject.tag == "Player")
+            if (collider.gameObject.tag == "LocalPlayer")
             {
                 navMeshAgent.destination = collider.transform.position;
             }
