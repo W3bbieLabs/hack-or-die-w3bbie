@@ -2626,7 +2626,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/Main.unity
   onlineScene: Assets/Scenes/Main.unity
   transport: {fileID: 2077952673}
-  networkAddress: 54.243.108.99
+  networkAddress: w3bbiegames.xyz
   maxConnections: 100
   authenticator: {fileID: 0}
   playerPrefab: {fileID: 7706072903723678072, guid: a73d4a09b49874e40b467aa2e3cbccac, type: 3}
@@ -2673,8 +2673,8 @@ MonoBehaviour:
   clientMaxMessagesPerTick: 1000
   batchSend: 1
   waitBeforeSend: 0
-  clientUseWss: 0
-  sslEnabled: 0
+  clientUseWss: 1
+  sslEnabled: 1
   sslCertJson: ./cert.json
   sslProtocols: -1
   _logLevels: 0

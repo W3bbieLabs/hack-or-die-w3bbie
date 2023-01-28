@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Stylesheet.uss?fileID=7433441132597879392&amp;guid=b5a546c16694c124e8508cfbbf1cede5&amp;type=3#Stylesheet" />
+    <ui:VisualElement style="flex-grow: 1; flex-basis: auto; justify-content: center; align-items: stretch; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; background-color: rgb(241, 241, 241);">
+        <ui:VisualElement name="container" style="justify-content: center; flex-basis: 100%; align-items: center; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; background-color: rgb(255, 255, 255); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; flex-direction: column; flex-grow: 0;">
+            <ui:VisualElement name="button-container" style="flex-direction: column; align-items: stretch; justify-content: center; width: 40%; background-color: rgba(154, 152, 152, 0); flex-basis: auto; height: 50%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; flex-grow: 0;">
+                <ui:Button text="Start" display-tooltip-when-elided="true" class="button" style="font-size: 30px; -unity-font-style: bold;" />
+                <ui:Button text="Mint&#10;" display-tooltip-when-elided="true" class="button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
