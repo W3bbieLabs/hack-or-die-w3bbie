@@ -3210,7 +3210,7 @@ MonoBehaviour:
   moveSpeed: 7
   groundDrag: 7
   detectionRange: 10
-  agentPrefab: {fileID: 7505146589613161413, guid: 710140a5328059d438814a488ffa7ca4, type: 3}
+  agentPrefab: {fileID: 5578838119555758907, guid: 5160d5b809f09426db13107a5d552b35, type: 3}
   anim: {fileID: 7363404820654868761}
   orientation: {fileID: 5944708105326353315}
   playerCollider: {fileID: 8097131764835206163}
@@ -3367,7 +3367,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
-  agentPrefab: {fileID: 7505146589613161413, guid: 710140a5328059d438814a488ffa7ca4, type: 3}
+  agentPrefab: {fileID: 5578838119555758907, guid: 5160d5b809f09426db13107a5d552b35, type: 3}
   enemyMultiplier: 1
   level: 1
   isSpawned: 0
