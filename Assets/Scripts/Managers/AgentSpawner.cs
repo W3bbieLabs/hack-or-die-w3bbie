@@ -6,16 +6,21 @@ using Mirror;
 
 public class AgentSpawner : NetworkBehaviour
 {
-
     public GameObject agentPrefab;
+    public GameObject door;
 
-    [SerializeField] float spawnRadius = 5f;
-
-    // Update is called once per frame
+    [SerializeField] float spawnRadius = 3f;
 
     public int enemyMultiplier = 1;
-
     public int level = 1;
+    private int enemyCount;
+    private Animator doorAnimator;
+
+    void Start()
+    {
+        doorAnimator = door.GetComponent<Animator>();
+    }
+
     void Update()
     {
         /*
@@ -31,13 +36,18 @@ public class AgentSpawner : NetworkBehaviour
     [Command]
     public void AddAgents()
     {
-        int enemyCount = level * enemyMultiplier;
+        enemyCount = level * enemyMultiplier;
         Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
             Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
+        }
+
+        if (enemyCount == 25)
+        {
+            doorAnimator.SetBool("Open", true);
         }
     }
 
@@ -49,5 +59,4 @@ public class AgentSpawner : NetworkBehaviour
         Vector3 newPos = new Vector3(hit.position.x, 1.25f, hit.position.z);
         return newPos;
     }
-
 }
