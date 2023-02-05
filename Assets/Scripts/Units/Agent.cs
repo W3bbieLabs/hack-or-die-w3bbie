@@ -69,7 +69,7 @@ public class Agent : Unit
         Ray ray = new Ray(bulletSpawnPoint.position, bulletSpawnPoint.forward);
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.gameObject.tag == "Player")
+            if (hit.collider.gameObject.tag == "LocalPlayer")
             {
                 shoot();
             }

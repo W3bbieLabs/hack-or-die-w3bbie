@@ -3332,7 +3332,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   smoothSpeed: 1
-  offset: {x: 0, y: 10, z: -10}
+  offset: {x: 0, y: 5, z: -5}
 --- !u!114 &-1985712251137346508
 MonoBehaviour:
   m_ObjectHideFlags: 0

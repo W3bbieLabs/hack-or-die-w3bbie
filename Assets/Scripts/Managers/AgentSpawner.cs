@@ -7,18 +7,18 @@ using Mirror;
 public class AgentSpawner : NetworkBehaviour
 {
     public GameObject agentPrefab;
-    public GameObject door;
+    
 
     [SerializeField] float spawnRadius = 3f;
 
     public int enemyMultiplier = 1;
     public int level = 1;
     private int enemyCount;
-    private Animator doorAnimator;
+    
 
     void Start()
     {
-        doorAnimator = door.GetComponent<Animator>();
+        
     }
 
     void Update()
@@ -45,10 +45,7 @@ public class AgentSpawner : NetworkBehaviour
             NetworkServer.Spawn(_agent);
         }
 
-        if (enemyCount == 25)
-        {
-            doorAnimator.SetBool("Open", true);
-        }
+        
     }
 
     public static Vector3 GetRandomPoint(Vector3 center, float maxDistance)
