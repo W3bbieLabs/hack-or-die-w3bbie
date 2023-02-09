@@ -11,6 +11,9 @@ public class Player : Unit
     [SerializeField] GameObject agentPrefab;
 
     [SerializeField] Animator anim;
+
+    [SerializeField] Animator bluAnim;
+
     [SerializeField] Transform orientation;
     private PlayerInput playerInput;
 
@@ -28,15 +31,16 @@ public class Player : Unit
     [SerializeField] float bulletSpeed = 10f;
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
+
     Camera mainCam;
-
     MainManager mainManager;
-
-
     [SerializeField] int enemyMultiplier = 1;
 
-    [SerializeField] float spawnRadius = 20f;
+    [Header("Enemies")]
+    [SerializeField] float spawnRadius = 1f;
+    [SerializeField] Vector3[] spawnPoints;
 
+    private Vector3 sp;
 
     public override void OnStartClient()
     {
@@ -47,6 +51,13 @@ public class Player : Unit
         mainManager = GetComponent<MainManager>();
     }
 
+    public Vector3 getRandomSpawnPoint()
+    {
+        var randomIndex = Random.Range(0, spawnPoints.Length);
+        return spawnPoints[randomIndex];
+        //var randomIndex = random.Next(0, spawnPoints.Length);
+    }
+
     [Command]
     public void CmdAddAgents(int level)
     {
@@ -54,7 +65,10 @@ public class Player : Unit
         Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
+
+            sp = getRandomSpawnPoint();
+            Debug.Log("Spawning " + i + " at " + sp);
+            Vector3 randomPos = GetRandomPoint(sp, spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
         }
@@ -67,7 +81,9 @@ public class Player : Unit
         Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
+            sp = getRandomSpawnPoint();
+            Debug.Log("Spawning " + i + " at " + sp);
+            Vector3 randomPos = GetRandomPoint(sp, spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
         }
@@ -194,7 +210,7 @@ public class Player : Unit
     }
     public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
         if (bulletCount > 0)
         {
             anim.SetBool("isShooting", true);
@@ -251,10 +267,13 @@ public class Player : Unit
             MovePlayer(inputDirection);
             transform.forward = Vector3.Slerp(transform.forward, inputDirection, Time.deltaTime * rotationSpeed);
             anim.SetBool("isRunning", true);
+            bluAnim.SetBool("isRunning", true);
+
         }
         else
         {
             anim.SetBool("isRunning", false);
+            bluAnim.SetBool("isRunning", false);
         }
     }
 

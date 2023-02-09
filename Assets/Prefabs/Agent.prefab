@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7505146589613161413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.78, z: 0}
+  m_LocalPosition: {x: 0, y: 0.877, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -240,7 +240,7 @@ MonoBehaviour:
   syncInterval: 0.1
   moveSpeed: 10
   groundDrag: 5
-  detectionRange: 10
+  detectionRange: 100
   agentPrefab: {fileID: 7505146589613161413}
   bulletSpawnPoint: {fileID: 7505146590693707614}
   bulletPrefab: {fileID: 4196966566491532433, guid: 10a69d45004ca494da3316d81c536762, type: 3}

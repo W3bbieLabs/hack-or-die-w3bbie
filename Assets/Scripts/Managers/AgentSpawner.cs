@@ -6,21 +6,16 @@ using Mirror;
 
 public class AgentSpawner : NetworkBehaviour
 {
-    public GameObject agentPrefab;
-    
 
-    [SerializeField] float spawnRadius = 3f;
+    public GameObject agentPrefab;
+
+    [SerializeField] float spawnRadius = 5f;
+
+    // Update is called once per frame
 
     public int enemyMultiplier = 1;
+
     public int level = 1;
-    private int enemyCount;
-    
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         /*
@@ -36,7 +31,7 @@ public class AgentSpawner : NetworkBehaviour
     [Command]
     public void AddAgents()
     {
-        enemyCount = level * enemyMultiplier;
+        int enemyCount = level * enemyMultiplier;
         Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
@@ -44,16 +39,16 @@ public class AgentSpawner : NetworkBehaviour
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
         }
-
-        
     }
 
     public static Vector3 GetRandomPoint(Vector3 center, float maxDistance)
     {
         Vector3 randomPos = Random.insideUnitSphere * maxDistance + center;
+        Debug.Log("Pos: " + randomPos);
         NavMeshHit hit; // NavMesh Sampling Info Container
         NavMesh.SamplePosition(randomPos, out hit, maxDistance, NavMesh.AllAreas);
         Vector3 newPos = new Vector3(hit.position.x, 1.25f, hit.position.z);
         return newPos;
     }
+
 }

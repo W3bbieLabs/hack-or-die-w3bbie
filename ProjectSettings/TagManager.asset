@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Agent
+  - LocalPlayer
+  - GunEnemy
+  - blk_c
+  - blu_c
+  - Deadzone
+  - UIDoc
+  - soccer_ball
   layers:
   - Default
   - TransparentFX
