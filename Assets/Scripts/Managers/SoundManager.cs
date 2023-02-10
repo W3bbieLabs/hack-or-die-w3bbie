@@ -8,12 +8,14 @@ public class SoundManager : MonoBehaviour
     public AudioSource soundEffects;
     public AudioSource mainMenu;
     public AudioSource soundEffectsEnemy;
+    public AudioSource bonusSounds;
 
     public AudioClip environmentMusicClip;
     public AudioClip backgroundMusicClip;
     public AudioClip levelCompleteClip;
     public AudioClip levelFailedClip;
     public AudioClip levelThemeClip;
+    public AudioClip levelTheme2Clip;
     public AudioClip loadOutClip;
     public AudioClip mainMenuClip;
     public AudioClip newUnlockClip;
@@ -48,19 +50,25 @@ public class SoundManager : MonoBehaviour
 
     public void PlayLevelComplete()
     {
-        soundEffects.clip = levelCompleteClip;
-        soundEffects.Play();
+        bonusSounds.clip = levelCompleteClip;
+        bonusSounds.Play();
     }
 
     public void PlayLevelFailed()
     {
-        soundEffects.clip = levelFailedClip;
-        soundEffects.Play();
+        bonusSounds.clip = levelFailedClip;
+        bonusSounds.Play();
     }
 
     public void PlayLevelTheme()
     {
         backgroundMusic.clip = levelThemeClip;
+        backgroundMusic.Play();
+    }
+
+    public void PlayLevelTheme2()
+    {
+        backgroundMusic.clip = levelTheme2Clip;
         backgroundMusic.Play();
     }
 

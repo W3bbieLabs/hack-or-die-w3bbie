@@ -47,7 +47,15 @@ public class MainManager : NetworkBehaviour
         //agent.CmdAddAgents(level, enemyMultiplier, spawnRadius);
         player = GameObject.FindGameObjectWithTag("LocalPlayer").GetComponent<Player>();
         base.OnStartClient();
-        SoundManager.instance.PlayLevelTheme();
+        if(level >= 10)
+        {
+            SoundManager.instance.PlayLevelTheme2();
+        }
+        else
+        {
+            SoundManager.instance.PlayLevelTheme();
+        }
+        
        
     }
 
@@ -78,7 +86,11 @@ public class MainManager : NetworkBehaviour
         level += 1;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         ResetGame();
-        SoundManager.instance.PlayLevelComplete();
+        if (level % 5 == 0)
+        {
+          SoundManager.instance.PlayLevelComplete();  
+        }
+        
     }
 
     public void GameOver()

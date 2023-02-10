@@ -38,6 +38,7 @@ public class AgentSpawner : NetworkBehaviour
             Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
+            
         }
     }
 

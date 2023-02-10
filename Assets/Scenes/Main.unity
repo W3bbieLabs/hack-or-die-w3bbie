@@ -6952,6 +6952,7 @@ MonoBehaviour:
   levelCompleteClip: {fileID: 8300000, guid: a59619fd19f02464685504fe381307af, type: 3}
   levelFailedClip: {fileID: 8300000, guid: a01241fe778d044ccb0eb68ade1fe4c2, type: 3}
   levelThemeClip: {fileID: 8300000, guid: 3a1ce98151e094ba5b342b83a8e98e78, type: 3}
+  levelTheme2Clip: {fileID: 8300000, guid: 03b5c41742b644d299d3191b59cd6cbc, type: 3}
   loadOutClip: {fileID: 8300000, guid: 711e921c10eaa43efa925de28839dbdc, type: 3}
   mainMenuClip: {fileID: 8300000, guid: 3fefdfe963e1e4fca84da09c1957c83f, type: 3}
   newUnlockClip: {fileID: 8300000, guid: 503c73a3b9ee240c09818bd8b26e4c3a, type: 3}
