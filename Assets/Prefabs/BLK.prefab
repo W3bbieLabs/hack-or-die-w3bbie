@@ -3217,6 +3217,7 @@ MonoBehaviour:
   bluAnim: {fileID: 37338547596356482}
   orientation: {fileID: 5944708105326353315}
   playerCollider: {fileID: 8097131764835206163}
+  shootSound: {fileID: 0}
   rotationSpeed: 10
   bulletCount: 10000
   bulletSpeed: 10

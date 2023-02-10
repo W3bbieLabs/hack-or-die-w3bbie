@@ -72,6 +72,7 @@ public class Agent : Unit
             if (hit.collider.gameObject.tag == "LocalPlayer")
             {
                 shoot();
+                SoundManager.instance.PlayEnemyUzi();
             }
         }
     }

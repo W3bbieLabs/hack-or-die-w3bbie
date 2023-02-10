@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 52d7b33772b53404c9c2aeb6ab84c5f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - environmentMusic: {instanceID: 0}
+  - backgroundMusic: {instanceID: 0}
+  - soundEffects: {instanceID: 0}
+  - environmentMusicClip: {instanceID: 0}
+  - backgroundMusicClip: {instanceID: 0}
+  - levelCompleteClip: {instanceID: 0}
+  - levelFailedClip: {instanceID: 0}
+  - levelThemeClip: {instanceID: 0}
+  - loadOutClip: {instanceID: 0}
+  - mainMenuClip: {fileID: 8300000, guid: 449113962ea984fb29c72fae18e478ac, type: 3}
+  - newUnlockClip: {instanceID: 0}
+  - nextLevelClip: {instanceID: 0}
+  - selectCharacterClip: {instanceID: 0}
+  - startNewGameClip: {instanceID: 0}
+  - upgradeCharacterClip: {instanceID: 0}
+  - voiceOversClip: {instanceID: 0}
+  - weaponsClip: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

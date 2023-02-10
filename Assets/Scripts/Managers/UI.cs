@@ -19,14 +19,23 @@ public class UI : MonoBehaviour
         Button playGuest = root.Q<Button>("play_guest");
         connectWallet.clicked += () => onConnectWalletClicked();
         playGuest.clicked += () => onPlayGuestClicked();
-
+        
+       
         //sdk = new ThirdwebSDK("mumbai");
     }
+    public AudioSource mainMenu;
+
+    void Start()
+    {
+        SoundManager.instance.PlayMainMenu();
+    }
+
     public void ConnectClient(bool isWallet)
     {
         networkManager.networkAddress = networkAddress;
         networkManager.StartClient();
         //GameObject.FindGameObjectWithTag("blu_c").SetActive(false);
+        mainMenu.Stop();
     }
 
     private void StartServer(string address)
@@ -61,5 +70,6 @@ public class UI : MonoBehaviour
         Debug.Log("onClientConnectButtonClicked()");
         ConnectClient(false);
         //root.Q<VisualElement>("container").visible = false;
+        SoundManager.instance.PlayStartNewGame();
     }
 }

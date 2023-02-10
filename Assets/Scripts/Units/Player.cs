@@ -19,7 +19,7 @@ public class Player : Unit
 
     [SerializeField] Collider playerCollider;
     protected Rigidbody rb;
-
+    
     [Header("Movement")]
     [SerializeField] float rotationSpeed = 10;
     bool readyToJump = true;
@@ -216,6 +216,7 @@ public class Player : Unit
             anim.SetBool("isShooting", true);
             if (isLocalPlayer)
                 SpawnBullet();
+                SoundManager.instance.PlayUzi();
         }
     }
 

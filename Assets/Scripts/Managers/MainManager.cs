@@ -21,6 +21,8 @@ public class MainManager : NetworkBehaviour
 
     public bool isInit = false;
 
+    public AudioSource MainMenuMusic;
+
     void Awake()
     {
         if (!isLocalPlayer)
@@ -45,12 +47,15 @@ public class MainManager : NetworkBehaviour
         //agent.CmdAddAgents(level, enemyMultiplier, spawnRadius);
         player = GameObject.FindGameObjectWithTag("LocalPlayer").GetComponent<Player>();
         base.OnStartClient();
+        SoundManager.instance.PlayLevelTheme();
+       
     }
 
     public override void OnStartServer()
     {
         player = GameObject.FindGameObjectWithTag("LocalPlayer").GetComponent<Player>();
         base.OnStartClient();
+        
     }
 
 
@@ -73,6 +78,7 @@ public class MainManager : NetworkBehaviour
         level += 1;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         ResetGame();
+        SoundManager.instance.PlayLevelComplete();
     }
 
     public void GameOver()
@@ -80,6 +86,7 @@ public class MainManager : NetworkBehaviour
         level = 1;
         ResetGame();
         //DestroyAll("Agent");
+        SoundManager.instance.PlayLevelFailed();
     }
 
     private int GetAgentCount()
