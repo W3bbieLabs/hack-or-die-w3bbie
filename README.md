@@ -1,7 +1,7 @@
 `Date last modified: 2023 02 2023`
 # Hack or Die
 
-[Hack or Die Demo](http://w3bbie.xyz/hackordie/), courtesy of [W3BBIE](https://twitter.com/w3bbie_xyz). Built for [ThirdWeb's Ready Player 3 hackathon](https://thirdweb.com/hackathon/readyplayer3).
+[Hack or Die Demo](http://w3bbie.xyz/hod), courtesy of [W3BBIE](https://twitter.com/w3bbie_xyz). Built for [ThirdWeb's Ready Player 3 hackathon](https://thirdweb.com/hackathon/readyplayer3).
 
 *Welcome to the Hack or Die README. Here, you will find a guide to context, gameplay, design, and development.* 
 
@@ -14,12 +14,12 @@ In our multiplayer co-op game, players band together to fend off endless waves o
 We wanted to challenge ourselves to use tools we were not familiar with to build something fun people could play together.
 
 ### 🤠 Bounties We are After!
-| Bounty Name   | Description | Eligibilty |
+| Bounty Name   | Description | Eligibility |
 |---------------|-------------|------------|
 | The Future of Gaming | Leverage thirdweb’s front-end, back-end, and blockchain SDKs and components (e.g. GamingKit, UI Kit, Gasless Relayers, React SDK, etc.) to create an innovative and user-friendly web3 gaming experience.| Leveraged thirdweb's ERC1155 (edition drop) contract for token-gated characters, utilized Contract kit, Gaming Kit (Unity SDK) & UI Kit|
 | Ship Your First Game| Best use of thirdweb’s UnitySDK in an innovative web3 gaming build or use of threeJS (or another browser based language) with thirdweb’s SDKs. | Utilized thirdweb's UnitySDK to build Hack Or Die. Used threeJS with thirdweb's UI components in the marketplace |
-| HardMore| Leverage both ContractKit and GamingKit in a browser-based web3 game build.| Used ContractKit for our in game NFTs. Utlizied GamingKit to provide web3 wallet intergration interacting with our deployed smart contracts so players can access character and reward NFTs. |
-| Under The Hood | Leverage thirdweb and Coinbase infrastructure in a web3 gaming build to further highlight the GamingKit collaboration.|Wallet Connect button is built from thirdweb's UI components that allow users to connect to Coinbase Wallet. |
+| HardMode| Leverage both ContractKit and GamingKit in a browser-based web3 game build.| Used ContractKit for our in game NFTs. Utlizied GamingKit to provide web3 wallet intergration interacting with our deployed smart contracts so players can access character and reward NFTs. |
+| Under The Hood | Leverage thirdweb and Coinbase infrastructure in a web3 gaming build to further highlight the GamingKit collaboration.| Wallet Connect button is built from thirdweb's UI components that allow users to connect to Coinbase Wallet. |
 
 
 ### 👾 Reasons to play?
@@ -116,7 +116,7 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 
 | Name                                                                  | Role(s)                                   |
 |-----------------------------------------------------------------------|-------------------------------------------|
-| [Kyn Adams](link)                                                     | Server, Tester                            |
+| [Kyn Adams](https://twitter.com/Tek_Gawd)                                                     | Server, Tester                            |
 | [Tabari Humphries](https://www.instagram.com/gyasi.eth/)              | Environmental Design, Level Design        |
 | [Jack Lester](https://www.linkedin.com/in/jacklester/)                | UI, Technical Documentation, Music & SFX  |
 | [Travis Rice](https://www.linkedin.com/in/travislrice/)               | Project Manager, Character Design         |
