@@ -37,17 +37,17 @@ We wanted to challenge ourselves to use tools we were not familiar with to build
 * Movement
     - Standard left, right, up, down. 
     - Bound to keys, WASD.
-    - Can be used in conjuntion with space bar, triggering a jump-move.
+    - Can be used in conjunction with space bar, triggering a jump-move.
 * Auto-lock 
     - Player's weapon auto-locks onto the position of the nearest enemy.
     - Player (when auto-locked) is rotated to nearest enemy during auto-lock. 
 * Projectile Firing
     - Firing happens via velocity, in direction of target.
 * Enemy Awareness
-    - Enimies are position-aware, locking onto the player's position, then navigating to that defined point. 
+    - Enemies are position-aware, locking onto the player's position, then navigating to that defined point. 
 * Enemy Respawning
     - Enemies respawn in waves, per duration (and targets eliminated).  
-    - The nuber of enmies in a respawn is game-defined. 
+    - The number of enemies in a respawn is game-defined. 
 * Jumping
     - Spacebar vaults the character upwards. 
     - A double can be triggered with timely taps of the spacebar.
