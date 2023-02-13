@@ -8,9 +8,9 @@
 ---
 
 ## General Context
-### Why we Created Hack or Die
+### 💡 Why we Created Hack or Die
 
-### Bounties We are After!
+### 🤠 Bounties We are After!
 | Bounty Name   | Description | Eligibilty |
 |---------------|-------------|------------|
 | The Future of Gaming |leverage thirdweb’s front-end, back-end, and blockchain SDKs and components (e.g. GamingKit, UI Kit, Gasless Relayers, React SDK, etc.) to create an innovative and user-friendly web3 gaming experience.|leveraged thirdweb's ERC1155 (edition drop) contract for token-gated characters, utilized Contract kit, Gaming Kit (Unity SDK) & UI Kit|
@@ -20,7 +20,7 @@
 | Under The Hood | Leverage thirdweb and Coinbase infrastructure in a web3 gaming build to further highlight the GamingKit collaboration.|------------|
 
 
-### Reasons to play?
+### 👾 Reasons to play?
 * The initial up-front to play? Zero.
 * Massively multiplayer (bring your friends, or make new ones).
 * Web3 beginner friendly
@@ -28,18 +28,18 @@
 
 ---
 
-## Inside Hack or Die
+## 👘 Inside Hack or Die
 
-### Story
+### 👀 Story
 #### Origin and plot
 
-### Mechanics
+### ⚙️ Mechanics
 #### Gameplay Physics
 * Projectiles
 * Enemy Respawning
 * Double Jump
 
-### Aesthetics
+### 🎨 Aesthetics
 #### Environment Design
 Hack or Die features an array of sectors within a level, each with its own unique aesthetic and gameplay relative purpose. The idea is to provide players the reason to explore.  
 
@@ -95,7 +95,7 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 
 ---
 
-## Future Plans for Hack or Die
+## 👽 Future Plans for Hack or Die
 * Build easter eggs into level one.
 * Build environmental-based hacks into level one.
 * Build time-based hacks into level one.
@@ -107,7 +107,7 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 
 ---
 
-## Team W3BBIE
+## 🦾 Team W3BBIE
 
 | Name                                                                  | Role(s)                                   |
 |-----------------------------------------------------------------------|-------------------------------------------|
