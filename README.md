@@ -8,16 +8,18 @@
 ---
 
 ## General Context
+In our multiplayer co-op game, players band together to fend off endless waves of enemies in a bid for survival. With each wave presenting a new challenge and a new opportunity to prove their mettle, our game will keep players on the edge of their seats as they fight to survive for as long as possible.
+
 ### 💡 Why we Created Hack or Die
+We wanted to challenge ourselves to use tools we were not familiar with to build something fun people could play together.
 
 ### 🤠 Bounties We are After!
 | Bounty Name   | Description | Eligibilty |
 |---------------|-------------|------------|
-| The Future of Gaming |leverage thirdweb’s front-end, back-end, and blockchain SDKs and components (e.g. GamingKit, UI Kit, Gasless Relayers, React SDK, etc.) to create an innovative and user-friendly web3 gaming experience.|leveraged thirdweb's ERC1155 (edition drop) contract for token-gated characters, utilized Contract kit, Gaming Kit (Unity SDK) & UI Kit|
-| The Coolest Concept| Awarded for the most creative gaming concept utilizing the ERC-Cool™ Sustainable Smart Contract coupled with thirdweb’s Unity SDK to positively impact the planet while you play| ERC-Cool Sustainable Smart Contract for in game reward NFTs|
+| The Future of Gaming | Leverage thirdweb’s front-end, back-end, and blockchain SDKs and components (e.g. GamingKit, UI Kit, Gasless Relayers, React SDK, etc.) to create an innovative and user-friendly web3 gaming experience.| Leveraged thirdweb's ERC1155 (edition drop) contract for token-gated characters, utilized Contract kit, Gaming Kit (Unity SDK) & UI Kit|
 | Ship Your First Game| Best use of thirdweb’s UnitySDK in an innovative web3 gaming build or use of threeJS (or another browser based language) with thirdweb’s SDKs. | Utilized thirdweb's UnitySDK to build Hack Or Die. Used threeJS with thirdweb's UI components in the marketplace |
 | HardMore| Leverage both ContractKit and GamingKit in a browser-based web3 game build.| Used ContractKit for our in game NFTs. Utlizied GamingKit to provide web3 wallet intergration interacting with our deployed smart contracts so players can access character and reward NFTs. |
-| Under The Hood | Leverage thirdweb and Coinbase infrastructure in a web3 gaming build to further highlight the GamingKit collaboration.|------------|
+| Under The Hood | Leverage thirdweb and Coinbase infrastructure in a web3 gaming build to further highlight the GamingKit collaboration.|Wallet Connect button is built from thirdweb's UI components that allow users to connect to Coinbase Wallet. |
 
 
 ### 👾 Reasons to play?
@@ -30,9 +32,6 @@
 
 ## 👘 Inside Hack or Die
 
-### 👀 Story
-#### Origin and plot
-
 ### ⚙️ Mechanics
 #### Gameplay Physics
 * Projectiles
@@ -44,6 +43,7 @@
 Hack or Die features an array of sectors within a level, each with its own unique aesthetic and gameplay relative purpose. The idea is to provide players the reason to explore.  
 
 #### Character Design
+The first set of characters for Hack or Die were designed with the intention of being unique, familiar, and recognizable. Concepts for both BLK and BLU were created using Midjourney and hand modeled in virtual reality.   
 
 #### Interface Design
 The interface was designed to be simple, well-organized, and verbose. The key challenge in designing the interace was arriving at a design system which could expand with the game. Also important?Having the interface feel like an element of the game, and not a "default" and / or  "design afterthought." 
@@ -60,7 +60,10 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 * Thirdweb React SDK
 * Three JS
 * Framer Motion
-
+* Midjourney
+* ChatGPT
+* Ableton
+* Gravity Sketch
 ---
 
 ## 🚧 Development
@@ -80,6 +83,7 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 |----------------------------------------------------------------|----------------|
 | Two players on seperate devices in an environment in browser.  | 2023 / 01 / 27 |
 | All 3d assets for game created (environment, characters, etc). | 2023 / 01 / 30 |
+| Built easter eggs into level one.                              | 2023 / 02 / 12 |
 
 ### 🐞 Known Bugs
 
@@ -96,7 +100,6 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 ---
 
 ## 👽 Future Plans for Hack or Die
-* Build easter eggs into level one.
 * Build environmental-based hacks into level one.
 * Build time-based hacks into level one.
 * Build time-based multipliers into level one.
@@ -104,7 +107,9 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 * Establish leaderboard system.
 * Complete the interface from design system prototype (HUDs, pause/play states). 
 * Enable adjustable physics to influence and create play styles.
-
+* Refine gameplay loop
+* Add more playable characters and weapons
+* Intergrate social features (text and voice chat)
 ---
 
 ## 🦾 Team W3BBIE
@@ -112,10 +117,10 @@ The sounds of Hack or Die aim to round out gameplay on a macro and micro scale; 
 | Name                                                                  | Role(s)                                   |
 |-----------------------------------------------------------------------|-------------------------------------------|
 | [Kyn Adams](link)                                                     | Server, Tester                            |
-| [Tabari Humphries](link)                                              | Environmental Design, Level Design        |
+| [Tabari Humphries](https://www.instagram.com/gyasi.eth/)              | Environmental Design, Level Design        |
 | [Jack Lester](https://www.linkedin.com/in/jacklester/)                | UI, Technical Documentation, Music & SFX  |
-| [Travis Rice](link)                                                   | Project Manager, Character Design         |
-| [Sailesh Sivakumar](link)                                             | Marketplace, Smart Contracts              |
-| [Chris Smith](link)                                                   | Gameplay Physics, Level Design            |
+| [Travis Rice](https://www.linkedin.com/in/travislrice/)               | Project Manager, Character Design         |
+| [Sailesh Sivakumar](https://www.linkedin.com/in/sailesh-sivakumar-453061141)| Marketplace, Smart Contracts        |
+| [Chris Smith](https://twitter.com/last_gigabyte)                      | Gameplay Physics, Level Design            |
 
 ---
