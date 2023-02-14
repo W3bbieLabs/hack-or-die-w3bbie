@@ -21,6 +21,8 @@ public class MainManager : NetworkBehaviour
 
     public bool isInit = false;
 
+    int maxEnemies = 7;
+
     void Awake()
     {
         if (!isLocalPlayer)
@@ -70,7 +72,7 @@ public class MainManager : NetworkBehaviour
 
     void LevelComplete()
     {
-        level += 1;
+        level = (level % maxEnemies) + 1;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         ResetGame();
     }
@@ -101,7 +103,7 @@ public class MainManager : NetworkBehaviour
     {
         //Debug.Log("start");
         yield return new WaitForSeconds(1);
-        Debug.Log("Agent died " + GetAgentCount());
+        Debug.Log("Wave Count: " + GetAgentCount());
         if (GetAgentCount() <= 0)
         {
             //Debug.Log("Killed all agents.");
@@ -111,7 +113,7 @@ public class MainManager : NetworkBehaviour
 
     public void AgentDied()
     {
-        Debug.Log("AgentDied");
+        //Debug.Log("AgentDied");
         StartCoroutine(checkAgentCount());
     }
 

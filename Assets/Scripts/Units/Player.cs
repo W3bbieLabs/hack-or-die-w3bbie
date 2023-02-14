@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.AI;
@@ -8,9 +9,19 @@ using Mirror;
 public class Player : Unit
 {
     Camera cam;
+
+    [SerializeField] AudioSource gun;
+    [SerializeField] AudioSource spawnSound;
+
+    [SerializeField] AudioSource deathSound;
+
+    [SerializeField] Vector3 restartPoint;
     [SerializeField] GameObject agentPrefab;
 
     [SerializeField] Animator anim;
+
+    [SerializeField] Animator bluAnim;
+
     [SerializeField] Transform orientation;
     private PlayerInput playerInput;
 
@@ -28,15 +39,21 @@ public class Player : Unit
     [SerializeField] float bulletSpeed = 10f;
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
+
     Camera mainCam;
-
     MainManager mainManager;
-
-
     [SerializeField] int enemyMultiplier = 1;
 
-    [SerializeField] float spawnRadius = 20f;
+    [Header("Enemies")]
+    [SerializeField] float spawnRadius = 1f;
+    [SerializeField] Vector3[] spawnPoints;
 
+    GameObject gameOverUI;
+    VisualElement root;
+
+    VisualElement gameOverRoot;
+
+    private Vector3 sp;
 
     public override void OnStartClient()
     {
@@ -45,16 +62,28 @@ public class Player : Unit
         CmdAddAgents(1);
         //Debug.Log("CmdAddAgents() OnStartClient pLAYER.CS");
         mainManager = GetComponent<MainManager>();
+        //GameObject.FindGameObjectWithTag("levelMusic").GetComponent<AudioSource>().Play();
+    }
+
+    public Vector3 getRandomSpawnPoint()
+    {
+        var randomIndex = Random.Range(0, spawnPoints.Length);
+        return spawnPoints[randomIndex];
+        //var randomIndex = random.Next(0, spawnPoints.Length);
     }
 
     [Command]
     public void CmdAddAgents(int level)
     {
         int enemyCount = level * enemyMultiplier;
-        Debug.Log("AGENT Count: " + enemyCount);
+        //Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
+
+            spawnSound.Play();
+            sp = getRandomSpawnPoint();
+            //Debug.Log("Spawning " + i + " at " + sp);
+            Vector3 randomPos = GetRandomPoint(sp, spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
         }
@@ -64,10 +93,13 @@ public class Player : Unit
     public void AddAgents(int level)
     {
         int enemyCount = level * enemyMultiplier;
-        Debug.Log("AGENT Count: " + enemyCount);
+        //Debug.Log("AGENT Count: " + enemyCount);
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector3 randomPos = GetRandomPoint(new Vector3(0, 0, 0), spawnRadius);
+            spawnSound.Play();
+            sp = getRandomSpawnPoint();
+            //Debug.Log("Spawning " + i + " at " + sp);
+            Vector3 randomPos = GetRandomPoint(sp, spawnRadius);
             GameObject _agent = Instantiate(agentPrefab, randomPos, Quaternion.identity);
             NetworkServer.Spawn(_agent);
         }
@@ -87,13 +119,74 @@ public class Player : Unit
         playerInput = new PlayerInput();
         playerInput.PlayerMain.Enable();
         cam = Camera.main;
+        // Game Over
+        gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        gameOverRoot = gameOverUI.GetComponent<UIDocument>().rootVisualElement;
+        Button restartButton = gameOverRoot.Q<Button>("restart");
+        restartButton.clicked += () => onRestartClicked();
+
         //Debug.Log(isLocalPlayer);
     }
+
+    /*
+    public void showGameOver()
+    {
+        gameOverRoot.Q<VisualElement>("container").visible = true;
+        gameOverRoot.Q<VisualElement>("container").visible = false;
+    }
+    */
+    private void OnEnable()
+    {
+
+        //hideGameOver();
+
+
+
+
+        /*
+        gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        root = gameOverUI.GetComponent<UIDocument>().rootVisualElement;
+        Button restartButton = root.Q<Button>("restart");
+        restartButton.clicked += () => onRestartClicked();
+        */
+
+        /*
+        gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        gameOverRoot = gameOverUI.GetComponent<UIDocument>().rootVisualElement;
+        Button restartButton = gameOverRoot.Q<Button>("restart");
+        restartButton.clicked += () => onRestartClicked();
+        */
+        //gameOverRoot.Q<VisualElement>("container").visible = false;
+    }
+
+
+    public void onRestartClicked()
+    {
+        Debug.Log("Restart");
+        gameOverRoot.Q<VisualElement>("container").visible = false;
+    }
+
+    public void showGameOver()
+    {
+        Debug.Log("showGameOver");
+        gameOverRoot.Q<VisualElement>("container").visible = true;
+    }
+
     private void Start()
     {
         distToGround = playerCollider.bounds.extents.y;
         rb = GetComponent<Rigidbody>();
         //Debug.Log(anim);
+    }
+
+    private void HandleDeath()
+    {
+        Debug.Log("Player Die.");
+        transform.position = restartPoint;
+        //GameObject.FindGameObjectWithTag("GameOverUI").GetComponent<UI>().showGameOver();
+        //onRestartClicked();
+        showGameOver();
+        //gameOver  Root.Q<VisualElement>("container").visible = true;
     }
 
     private void FixedUpdate()
@@ -105,6 +198,11 @@ public class Player : Unit
             AddDrag();
             SpeedControl();
             SenseEnemy();
+
+            if (transform.position.y < -5)
+            {
+                HandleDeath();
+            }
         }
 
     }
@@ -194,10 +292,11 @@ public class Player : Unit
     }
     public void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot");
+        //Debug.Log("Shoot");
         if (bulletCount > 0)
         {
             anim.SetBool("isShooting", true);
+            gun.Play();
             if (isLocalPlayer)
                 SpawnBullet();
         }
@@ -251,10 +350,13 @@ public class Player : Unit
             MovePlayer(inputDirection);
             transform.forward = Vector3.Slerp(transform.forward, inputDirection, Time.deltaTime * rotationSpeed);
             anim.SetBool("isRunning", true);
+            bluAnim.SetBool("isRunning", true);
+
         }
         else
         {
             anim.SetBool("isRunning", false);
+            bluAnim.SetBool("isRunning", false);
         }
     }
 

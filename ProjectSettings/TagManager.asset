@@ -8,6 +8,9 @@ TagManager:
   - Agent
   - GunEnemy
   - LocalPlayer
+  - UIDoc
+  - blu_c
+  - blk_c
   layers:
   - Default
   - TransparentFX

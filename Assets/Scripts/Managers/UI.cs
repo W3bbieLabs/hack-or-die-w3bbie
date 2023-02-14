@@ -1,26 +1,76 @@
 using UnityEngine.UIElements;
 using UnityEngine;
 using Mirror;
+//using Thirdweb;
 
 public class UI : MonoBehaviour
 {
     VisualElement root;
+    [SerializeField] AudioSource mainMusic;
+
+    //private ThirdwebSDK sdk;
 
     [SerializeField] NetworkManager networkManager;
 
     [SerializeField] string networkAddress;
+
+    GameObject gameOverUI;
+
+    VisualElement gameOverRoot;
+
+    private void Awake()
+    {
+
+        mainMusic.Play();
+    }
+
+    public void onRestartClicked()
+    {
+        Debug.Log("onRestartClicked");
+        gameOverRoot.Q<VisualElement>("gameovercontainer").visible = false;
+    }
+
+    public void showGameOver()
+    {
+        gameOverRoot.Q<VisualElement>("gameovercontainer").visible = true;
+    }
+
+    public void hideGameOver()
+    {
+        gameOverRoot.Q<VisualElement>("gameovercontainer").visible = false;
+    }
+
     private void OnEnable()
     {
+
+
+        // Game Over
+
+        gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI");
+        gameOverRoot = gameOverUI.GetComponent<UIDocument>().rootVisualElement;
+        //Button restartButton = gameOverRoot.Q<Button>("restart");
+        //restartButton.clicked += () => onRestartClicked();
+        hideGameOver();
+
+
+
+
+
+        // Main Menu 
         root = GetComponent<UIDocument>().rootVisualElement;
-        Button start = root.Q<Button>("start");
-        Button mint = root.Q<Button>("mint");
-        start.clicked += () => onStartButtonClicked();
-        mint.clicked += () => onClientConnectButtonClicked();
+        Button connectWallet = root.Q<Button>("connect_wallet");
+        Button playGuest = root.Q<Button>("play_guest");
+        connectWallet.clicked += () => onConnectWalletClicked();
+        playGuest.clicked += () => onPlayGuestClicked();
+
+        //sdk = new ThirdwebSDK("mumbai");
     }
-    private void ConnectClient(string address)
+    public void ConnectClient(bool isWallet)
     {
         networkManager.networkAddress = networkAddress;
         networkManager.StartClient();
+        mainMusic.Stop();
+        //GameObject.FindGameObjectWithTag("blu_c").SetActive(false);
     }
 
     private void StartServer(string address)
@@ -29,16 +79,31 @@ public class UI : MonoBehaviour
         networkManager.StartServer();
     }
 
-    public void onStartButtonClicked()
+    public void MetamaskLogin()
     {
-        Debug.Log("onStartButtonClicked()");
-        StartServer(networkAddress);
+        //ConnectWallet(WalletProvider.MetaMask);
     }
 
-    public void onClientConnectButtonClicked()
+    /*
+    private async void ConnectWallet(WalletProvider provider)
+    {
+        string address = await sdk.wallet.Connect();
+        Debug.Log("Address " + address);
+    }
+    */
+
+    public void onConnectWalletClicked()
+    {
+        Debug.Log("onConnectWalletClicked()");
+        MetamaskLogin();
+        //string address = await sdk.wallet.Connect();
+        //StartServer(networkAddress);
+    }
+
+    public void onPlayGuestClicked()
     {
         Debug.Log("onClientConnectButtonClicked()");
-        ConnectClient(networkAddress);
+        ConnectClient(false);
         //root.Q<VisualElement>("container").visible = false;
     }
 }

@@ -44,6 +44,7 @@ public class AgentSpawner : NetworkBehaviour
     public static Vector3 GetRandomPoint(Vector3 center, float maxDistance)
     {
         Vector3 randomPos = Random.insideUnitSphere * maxDistance + center;
+        Debug.Log("Pos: " + randomPos);
         NavMeshHit hit; // NavMesh Sampling Info Container
         NavMesh.SamplePosition(randomPos, out hit, maxDistance, NavMesh.AllAreas);
         Vector3 newPos = new Vector3(hit.position.x, 1.25f, hit.position.z);

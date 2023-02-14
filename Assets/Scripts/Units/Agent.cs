@@ -11,10 +11,14 @@ public class Agent : Unit
     [SerializeField] GameObject agentPrefab;
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
-    [SerializeField] float bulletSpeed = 10f;
+    [SerializeField] float bulletSpeed = 30f;
     NavMeshAgent navMeshAgent;
     float speedMultiplier = 2f;
     [SerializeField] int bulletDamage = 10;
+
+    [SerializeField] Animator anim;
+
+    [SerializeField] AudioSource gun;
 
     MainManager mainManager;
 
@@ -60,6 +64,7 @@ public class Agent : Unit
 
     void shoot()
     {
+        anim.SetBool("isShooting", true);
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
     }
@@ -69,9 +74,14 @@ public class Agent : Unit
         Ray ray = new Ray(bulletSpawnPoint.position, bulletSpawnPoint.forward);
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.collider.gameObject.tag == "Player")
+            if (hit.collider.gameObject.tag == "LocalPlayer")
             {
                 shoot();
+                gun.Play();
+            }
+            else
+            {
+                anim.SetBool("isShooting", false);
             }
         }
     }
@@ -93,14 +103,14 @@ public class Agent : Unit
     [ServerCallback]
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter enter on agent.cs");
+        //Debug.Log("OnTriggerEnter enter on agent.cs");
         int bulletDamage = other.GetComponent<Bullet>().bulletDamage;
         TakeHit(bulletDamage);
     }
 
     public void TakeHit(int damage)
     {
-        Debug.Log("TakeHit");
+        //Debug.Log("TakeHit");
         health -= damage;
         if (health <= 0)
         {

@@ -37,9 +37,14 @@ public class Bullet : NetworkBehaviour
     }
 
 
-    /*
+
     private void OnCollisionEnter(Collision other)
     {
+        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
+
+
+        /*
         Destroy(gameObject);
         if (other.gameObject.TryGetComponent<Player>(out Player player))
         {
@@ -52,6 +57,7 @@ public class Bullet : NetworkBehaviour
         {
             //agent.TakeHit(bulletDamage);
         }
+        */
     }
-    */
+
 }
